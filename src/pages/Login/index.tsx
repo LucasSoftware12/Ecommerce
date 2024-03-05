@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-export const Login = () => {
+import { Link,useNavigate } from 'react-router-dom';
 
+
+export const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -16,6 +18,7 @@ export const Login = () => {
     e.preventDefault();
     // Aquí puedes agregar lógica para enviar los datos del formulario a tu servidor o hacer otras acciones necesarias
     console.log(formData);
+    navigate('/dashboard');
   };
 
   return (
@@ -62,6 +65,7 @@ export const Login = () => {
           </div>
 
           <div>
+          
             <button
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -88,6 +92,7 @@ export const Login = () => {
               </span>
               Sign in
             </button>
+            
           </div>
           <div className="text-center">
             <Link to="/register" className="block text-sm font-medium text-indigo-600 hover:text-indigo-500">
